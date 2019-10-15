@@ -6,24 +6,24 @@ var tp = new Typograf({
 
 module.exports = function({ types: t }) {
   return {
-    pre(state) {
-      if (state.opts.disable){
-        state.opts.disable.forEach(function(rule){
-          tp.disableRule(rule);
-        });
+    pre() {
+      if (this.opts.disable){
+        for (var di = 0; di < this.opts.disable.length; di++ ) {
+          tp.disableRule(this.opts.disable[di]);
+        }
       }
-      if (state.opts.enable){
-        state.opts.disable.forEach(function(rule){
-          tp.enableRule(rule);
-        });
+      if (this.opts.enable){
+        for (var ei = 0; ei < this.opts.enable.length; ei++ ) {
+          tp.enableRule(this.opts.enable[ei]);
+        }
       }
     },
     visitor: {
-      StringLiteral(path){
-        if (path.parentPath.node.type !== "ImportDeclaration") {
+      JSXText(path) {
+        if ((path.node.value || '').trim()) {
           path.node.value = tp.execute(path.node.value)
         }
-      }
+      },
     }
   };
 };
