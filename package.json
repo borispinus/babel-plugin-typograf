@@ -1,0 +1,26 @@
+{
+  "name": "babel-plugin-typograf",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "boris pinus",
+    "email": "bvpinus@gmail.com"
+  },
+  "repository": "https://github.com/borispinus/babel-plugin-typograf.git",
+  "keywords": [
+    "babel-plugin",
+    "typograph",
+    "typograf"
+  ],
+  "scripts": {
+    "release": "standard-version",
+    "postrelease": "git push && git push --tags & yarn publish"
+  },
+  "dependencies": {
+    "typograf": "^6.8.3"
+  },
+  "devDependencies": {
+    "standard-version": "^5.0.2"
+  }
+}
