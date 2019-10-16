@@ -9,6 +9,8 @@
   },
   "repository": "https://github.com/borispinus/babel-plugin-typograf.git",
   "keywords": [
+    "babel",
+    "react",
     "babel-plugin",
     "typograph",
     "typograf"

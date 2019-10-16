@@ -19,6 +19,28 @@ module.exports = function({ types: t }) {
       }
     },
     visitor: {
+      Program(programPath) {
+        var isTpFile = false;
+        programPath.traverse({
+          enter(path) {
+            if (path.node.leadingComments || path.node.leadingComments) {
+            }
+            if (path.node.leadingComments && path.node.leadingComments.find(function(comment) {
+              return comment.value === "typograf-enable";
+            })) {
+              isTpFile = true;
+              return;
+            }
+          },
+          StringLiteral(path) {
+            if (isTpFile
+              && path.parentPath.node.type !== "ImportDeclaration"
+              && (path.node.value || '').trim()) {
+              path.node.value = tp.execute(path.node.value)
+            }
+          }
+        });
+      },
       JSXText(path) {
         if ((path.node.value || '').trim()) {
           path.node.value = tp.execute(path.node.value)
