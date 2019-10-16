@@ -23,8 +23,6 @@ module.exports = function({ types: t }) {
         var isTpFile = false;
         programPath.traverse({
           enter(path) {
-            if (path.node.leadingComments || path.node.leadingComments) {
-            }
             if (path.node.leadingComments && path.node.leadingComments.find(function(comment) {
               return comment.value === "typograf-enable";
             })) {
