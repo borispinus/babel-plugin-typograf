@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.0.0](https://github.com/borispinus/babel-plugin-typograf/compare/v0.1.2...v1.0.0) (2019-11-06)
+
+
+### Features
+
+* typograf-disable, turned off auto jsx typografing ([d8094fe](https://github.com/borispinus/babel-plugin-typograf/commit/d8094fee74032c335629a9e687ecacd6b9a339b9))
+
+
+### BREAKING CHANGES
+
+* turned off auto jsx typografing
+
+
+
 ## [0.1.2](https://github.com/borispinus/babel-plugin-typograf/compare/v0.1.1...v0.1.2) (2019-10-16)
 
 
