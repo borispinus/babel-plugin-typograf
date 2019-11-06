@@ -27,23 +27,27 @@ module.exports = function({ types: t }) {
               return comment.value === "typograf-enable";
             })) {
               isTpFile = true;
-              return;
+            }
+            if (path.node.leadingComments && path.node.leadingComments.find(function(comment) {
+              return comment.value === "typograf-disable";
+            })) {
+              isTpFile = false;
             }
           },
           StringLiteral(path) {
             if (isTpFile
-              && path.parentPath.node.type !== "ImportDeclaration"
+              && !t.isImportDeclaration(path.parentPath.node)
               && (path.node.value || '').trim()) {
               path.node.value = tp.execute(path.node.value)
             }
-          }
+          },
+          JSXText(path) {
+            if (isTpFile && (path.node.value || '').trim()) {
+              path.node.value = tp.execute(path.node.value)
+            }
+          },
         });
-      },
-      JSXText(path) {
-        if ((path.node.value || '').trim()) {
-          path.node.value = tp.execute(path.node.value)
-        }
-      },
+      }
     }
   };
 };
