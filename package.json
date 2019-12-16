@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-typograf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "author": {
@@ -20,6 +20,8 @@
     "postrelease": "git push && git push --tags & yarn publish"
   },
   "dependencies": {
+    "he": "^1.2.0",
+    "lodash.unescape": "^4.0.1",
     "typograf": "^6.8.3"
   },
   "devDependencies": {
