@@ -4,17 +4,17 @@ var tp = new Typograf({
   locale:'ru'
 });
 
-module.exports = function({ types: t }) {
+module.exports = function({ types: t }, opts) {
   return {
     pre() {
-      if (this.opts.disable){
-        for (var di = 0; di < this.opts.disable.length; di++ ) {
-          tp.disableRule(this.opts.disable[di]);
+      if (opts.disable){
+        for (var di = 0; di < opts.disable.length; di++ ) {
+          tp.disableRule(opts.disable[di]);
         }
       }
-      if (this.opts.enable){
+      if (opts.enable){
         for (var ei = 0; ei < this.opts.enable.length; ei++ ) {
-          tp.enableRule(this.opts.enable[ei]);
+          tp.enableRule(opts.enable[ei]);
         }
       }
     },
@@ -24,12 +24,12 @@ module.exports = function({ types: t }) {
         programPath.traverse({
           enter(path) {
             if (path.node.leadingComments && path.node.leadingComments.find(function(comment) {
-              return comment.value === "typograf-enable";
+              return comment.value.trim() === "typograf-enable";
             })) {
               isTpFile = true;
             }
             if (path.node.leadingComments && path.node.leadingComments.find(function(comment) {
-              return comment.value === "typograf-disable";
+              return comment.value.trim() === "typograf-disable";
             })) {
               isTpFile = false;
             }
