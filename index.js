@@ -6,6 +6,7 @@ var tp = new Typograf({
 
 module.exports = function({ types: t }, opts) {
   return {
+    name: 'typograf',
     pre() {
       if (opts.disable){
         for (var di = 0; di < opts.disable.length; di++ ) {
