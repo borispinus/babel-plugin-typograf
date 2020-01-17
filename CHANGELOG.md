@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.1.0](https://github.com/borispinus/babel-plugin-typograf/compare/v1.0.3...v1.1.0) (2020-01-17)
+
+
+### Features
+
+* added rule settings configuration ([6bc8f44](https://github.com/borispinus/babel-plugin-typograf/commit/6bc8f447cbd97f83a112077305190b47a57b40de))
+
+
+
 ## [1.0.3](https://github.com/borispinus/babel-plugin-typograf/compare/v1.0.2...v1.0.3) (2019-12-16)
 
 
