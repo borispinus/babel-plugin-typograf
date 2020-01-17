@@ -14,8 +14,13 @@ module.exports = function({ types: t }, opts) {
         }
       }
       if (opts.enable){
-        for (var ei = 0; ei < this.opts.enable.length; ei++ ) {
+        for (var ei = 0; ei < opts.enable.length; ei++ ) {
           tp.enableRule(opts.enable[ei]);
+        }
+      }
+      if (opts.settings){
+        for (var si = 0; si < opts.settings.length; si++ ) {
+          tp.setSetting.apply(tp, opts.settings[si])
         }
       }
     },
