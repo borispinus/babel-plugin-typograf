@@ -23,6 +23,6 @@
     "typograf": "^6.8.3"
   },
   "devDependencies": {
-    "standard-version": "^5.0.2"
+    "standard-version": "^8.0.1"
   }
 }
